@@ -18,12 +18,12 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    console.log(response);
+                    // console.log(response);
                     this.projects = response.data.project
                     this.loading = false
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
                     this.error = error.message
                 })
         },
@@ -31,21 +31,21 @@ export default {
             return this.baseApi + 'storage/' + path
         },
         nextPage(url) {
-            console.log(url);
+            // console.log(url);
             this.getProjects(url)
         },
         prevPage(url) {
-            console.log(url);
+            // console.log(url);
             this.getProjects(url)
         },
         currentPage(url) {
-            console.log(url);
+            // console.log(url);
             this.getProjects(url)
         }
     },
     mounted() {
         const url = this.baseApi + this.projectsPath
-        console.log(url);
+        // console.log(url);
         this.getProjects(url)
     },
 
