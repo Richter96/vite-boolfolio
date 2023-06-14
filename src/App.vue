@@ -102,11 +102,10 @@ export default {
                 </li>
 
                 <li class="page-item" :class="projects.next_page_url ? 'active' : ''"><a class="page-link" href="#"
-                       @click="prevPage(projects.prev_page_url)">1</a></li>
+                       @click="prevPage('http://127.0.0.1:8000/api/projects?page=1')">1</a></li>
 
                 <li class="page-item" :class="projects.prev_page_url ? 'active' : ''"><a class="page-link" href="#"
-                       @click="nextPage(projects.next_page_url)">2</a></li>
-
+                       @click="nextPage('http://127.0.0.1:8000/api/projects?page=2')">2</a></li>
 
                 <li class="page-item" :class="projects.next_page_url ? '' : 'disabled'">
                     <a class="page-link" href="#" @click="nextPage(projects.next_page_url)">Next</a>
