@@ -72,7 +72,7 @@ export default {
             </div>
         </div>
         <section class="card_project">
-            <div class="row row-cols-1  row-cols-md-2 row-cols-xl-3 g-3">
+            <div class="row row-cols-1  row-cols-md-3 row-cols-xl-4 g-3">
                 <div class="col" v-for="project in projects.data">
                     <div class="card h-100  d-flex flex-column">
                         <div class="image h-50">
