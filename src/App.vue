@@ -95,7 +95,7 @@ export default {
             </div>
         </section>
 
-        <nav aria-label="...">
+        <!-- <nav aria-label="...">
             <ul class="pagination my-3">
                 <li class="page-item " :class="projects.prev_page_url ? '' : 'disabled'">
                     <a class="page-link" href="#" @click="prevPage(projects.prev_page_url)">Previous</a>
@@ -111,7 +111,18 @@ export default {
                     <a class="page-link" href="#" @click="nextPage(projects.next_page_url)">Next</a>
                 </li>
             </ul>
+        </nav> -->
+
+        <nav aria-label="...">
+            <ul class="pagination my-3">
+                <li class="page-item border border-0 " :class="link.url ? '' : 'disabled'" v-for="link in projects.links">
+                    <a class="page-link" :class="link.active ? 'active' : ''" href="#" @click="currentPage(link.url)"
+                       v-html="link.label"></a>
+                </li>
+            </ul>
         </nav>
+
+
     </div>
 </template>
 
