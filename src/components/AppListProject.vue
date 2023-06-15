@@ -79,7 +79,7 @@ export default {
                     <div class="row row-cols-1  row-cols-md-3 row-cols-xl-4 g-3">
                         <div class="col" v-for="   n    in    8   ">
                             <div class="card" aria-hidden="true">
-                                <img src="../assets/loading.gif" class="card-img-top" alt="...">
+                                <img src="../assets/img/loading.gif" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title placeholder-glow">
                                         <span class="placeholder col-6"></span>

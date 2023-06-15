@@ -10,7 +10,7 @@ export default {
     },
     data() {
         return {
-            Project: null,
+            project: null,
             loading: true,
             baseApi: 'http://127.0.0.1:8000/',
         }
@@ -21,29 +21,64 @@ export default {
                 .get(url)
                 .then(response => {
                     console.log(response);
-                    if (response.data.succes) {
-                        this.Project = response.data.result
+                    if (response.data.success) {
+                        this.project = response.data.result
                     } else {
-                        this.$router.push({ name: 'not-found' })
+                        this.$router.push({
+                            name: 'not-found'
+                        })
                     }
                 })
                 .catch(error => {
                     console.log(error);
 
                 })
-        }
+        },
+        getImagePath(path) {
+            return this.baseApi + 'storage/' + path
+        },
 
     },
     mounted() {
         const url = this.baseApi + 'api/project/' + this.$route.params.slug;
         this.getSinglePost(url)
+
     },
 };
 </script>
 
 <template>
     <AppBanner :title="$route.params.slug"></AppBanner>
-    <div>
+    <div class="container my-5">
+        <div v-if="project">
+            <div class="row p-2 shadow row-cols-1">
+                <div class="col ">
+                    <img class=" img-fluid w-100" :src="getImagePath(project.image)" alt="">
+                </div>
+                <div class="col">
+                    <div class="info">
+                        <div>
+                            <p>{{ project.description }}</p>
+                        </div>
+                        <div class="metadata">
+                            <div class="author">
+                                <span><strong>Author: </strong>{{ project.user.name }}</span>
+                            </div>
+                            <div class="type">
+                                <span v-if="project.type"><strong>Type: </strong> {{ project.type.name }}</span>
+                                <span v-else>N/A</span>
+                            </div>
+                            <div class="technologies">
+                                <span><strong>Technologies: </strong></span>
+                                <span v-for="technology in project.technologies" v-if="project.type"
+                                      class="badge bg-dark m-1">{{ technology.name }}</span>
+                                <span v-else>N/A</span>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
