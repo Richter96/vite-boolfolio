@@ -7,7 +7,7 @@ export default {
 
 
 <template>
-    <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container">
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
@@ -27,9 +27,9 @@ export default {
                 </ul>
             </div>
         </div>
-    </nav> -->
+    </nav>
 
-
+    <!-- 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 
         <div class="container-fluid">
@@ -52,7 +52,7 @@ export default {
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 </template>
 
 <style lang="scss" scoped>

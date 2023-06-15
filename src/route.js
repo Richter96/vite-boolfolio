@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import AppHome from './view/AppHome.vue'
 import AppAbout from './view/AppAbout.vue'
 import AppContact from './view/AppContact.vue'
+import SinglePostView from './view/SinglePostView.vue'
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -10,6 +12,11 @@ const router = createRouter({
             'path': '/',
             'name': 'home',
             'component': AppHome
+        },
+        {
+            'path': '/blog/:slug',
+            'name': 'single-post',
+            'component': SinglePostView
         },
         {
             'path': '/About',

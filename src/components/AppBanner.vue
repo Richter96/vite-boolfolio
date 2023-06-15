@@ -9,7 +9,7 @@ export default {
 
 <template>
     <div class="bg-dark py-4 text-white shadow">
-        <h1 class="ms-3 ">
+        <h1 class="ms-3">
             {{ title }}
         </h1>
     </div>
