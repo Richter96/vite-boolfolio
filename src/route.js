@@ -31,7 +31,7 @@ const router = createRouter({
         },
         {
             'path': "/:pathMatch(.*)*",
-            'name': "page404",
+            'name': "not-found",
             'component': PageNotFound,
         },
     ]
