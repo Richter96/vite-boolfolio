@@ -3,6 +3,7 @@ import AppHome from './view/AppHome.vue'
 import AppAbout from './view/AppAbout.vue'
 import AppContact from './view/AppContact.vue'
 import SinglePostView from './view/SinglePostView.vue'
+import PageNotFound from './view/PageNotFound.vue'
 
 
 const router = createRouter({
@@ -27,6 +28,11 @@ const router = createRouter({
             'path': '/contact',
             'name': 'contact',
             'component': AppContact
+        },
+        {
+            'path': "/:pathMatch(.*)*",
+            'name': "page404",
+            'component': PageNotFound,
         },
     ]
 })
