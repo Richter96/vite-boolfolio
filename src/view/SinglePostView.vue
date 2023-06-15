@@ -1,9 +1,8 @@
 <script>
-import SinglePostView from '@/components/SinglePostView.vue';
 import AppBanner from '../components/AppBanner.vue';
 
 export default {
-    name: 'SinglePostView'
+    name: 'SinglePostView',
     components: {
         AppBanner
     },
