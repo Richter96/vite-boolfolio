@@ -46,7 +46,7 @@ export default {
     <div class=" container my-4">
         <section class="card_project" v-if="projects && !loading">
             <div class="row row-cols-1  row-cols-md-3 row-cols-xl-4 g-3">
-                <div class="col" v-for="project in projects.data">
+                <div class="col" v-for="project in    projects.data   ">
                     <div class="card h-100  d-flex flex-column">
                         <div class="image h-50">
                             <img class="card-img-top object-fit-cover h-100" :src="getImagePath(project.image)"
@@ -62,16 +62,22 @@ export default {
                             </a>
 
                             <p class="card-text">{{ project.description }}</p>
+
+                            <router-link :to="{ name: 'single-post', params: { 'slug': project.slug } }">
+                                Read More
+                            </router-link>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- loading section -->
         <div class="" v-else>
             <section class=" loading">
                 <div class="container">
                     <div class="row row-cols-1  row-cols-md-3 row-cols-xl-4 g-3">
-                        <div class="col" v-for="n in 8">
+                        <div class="col" v-for="   n    in    8   ">
                             <div class="card" aria-hidden="true">
                                 <img src="../assets/loading.gif" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -96,7 +102,8 @@ export default {
 
         <nav aria-label="...">
             <ul class="pagination my-3">
-                <li class="page-item border border-0 " :class="link.url ? '' : 'disabled'" v-for="link in projects.links">
+                <li class="page-item border border-0 " :class="link.url ? '' : 'disabled'"
+                    v-for="   link    in    projects.links   ">
                     <a class="page-link" :class="link.active ? 'active' : ''" href="#" @click="currentPage(link.url)"
                        v-html="link.label"></a>
                 </li>
