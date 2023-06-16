@@ -48,35 +48,36 @@ export default {
 </script>
 
 <template>
-    <AppBanner :title="$route.params.slug"></AppBanner>
-    <div class="container my-5">
-        <div v-if="project">
-            <div class="row p-2 shadow row-cols-1">
-                <div class="col ">
-                    <img class=" img-fluid w-100" :src="getImagePath(project.image)" alt="">
-                </div>
-                <div class="col">
-                    <div class="info">
-                        <div>
-                            <p>{{ project.description }}</p>
-                        </div>
-                        <div class="metadata">
-                            <div class="author">
-                                <span><strong>Author: </strong>{{ project.user.name }}</span>
-                            </div>
-                            <div class="type">
-                                <span v-if="project.type"><strong>Type: </strong> {{ project.type.name }}</span>
-                                <span v-else>N/A</span>
-                            </div>
-                            <div class="technologies">
-                                <span><strong>Technologies: </strong></span>
-                                <span v-for="technology in project.technologies" v-if="project.type"
-                                      class="badge bg-dark m-1">{{ technology.name }}</span>
-                                <span v-else>N/A</span>
-                            </div>
-                        </div>
+    <AppBanner :title="project?.title"></AppBanner>
 
+    <div class="container single_cards_container my-4">
+        <div class="card ">
+            <div class="card_image">
+                <img :src="getImagePath(project.image)" alt="{{project.title}}">
+            </div>
+            <div class="card-body h-50">
+                <div class="metadata">
+                    <div class="card_description">
+                        <p>{{ project.description }}</p>
                     </div>
+                    <div class="author">
+                        <span class=" d-inline"><strong>Author: </strong></span>
+                        <span class="text_sinc d-inline">{{ project.user.name }}</span>
+                    </div>
+                </div>
+                <div class="technologies">
+                    <span><strong>Technologies: </strong></span>
+                    <div class="card_technology d-inline">
+                        <span v-for="technology in project.technologies" v-if="project.type" class="pe-1">
+                            {{ technology.name }} |
+                        </span>
+                        <span v-else>N/A</span>
+                    </div>
+                </div>
+                <div class="type">
+                    <span class="text_sinc" v-if="project.type"><strong>Type: </strong> {{ project.type.name
+                    }}</span>
+                    <span v-else>N/A</span>
                 </div>
             </div>
         </div>
