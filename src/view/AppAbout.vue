@@ -10,16 +10,25 @@ export default {
 
 
 <template>
-    <AppBanner title="ABOUT ME"></AppBanner>
+    <AppBanner title="About"></AppBanner>
+    <section class="about_me">
+        <header class="py-5 bg-image-full">
+            <div class="text-center my-5">
+                <img class="img_profile img-fluid rounded-circle mb-4"
+                     src="https://avatars.githubusercontent.com/u/120056446?v=4" alt="..." />
+                <h1 class="text-white fs-3 fw-bolder">Riccardo Castiglione</h1>
+                <p class="text-white-50 mb-0">Full Stack Developer</p>
+            </div>
+        </header>
+    </section>
     <div class="container my-4">
-        <div class="row align-items-md-stretc">
+        <div class="row align-items-md-stretc shadow h-100">
             <div class="col-md-6">
-                <div class="h-100 p-5 text-white border shadow rounded-3">
-                    <h1 class="my-3">Riccardo Castiglione</h1>
-                    <h2>Somethink about Me<i class="fa fa-meanpath" aria-hidden="true"></i></h2>
+                <div class="h-100">
+                    <h1>Riccardo Castiglione</h1>
                 </div>
             </div>
-            <div class="col-md-6 bor ps-4 text-white  border-3 border-danger rounded-3">
+            <div class="col-md-6 bor ps-4 border-3 border-danger rounded-3">
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure fuga quo animi. Quae a distinctio
                     facere

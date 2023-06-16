@@ -32,6 +32,13 @@ export default {
         currentPage(url) {
             // console.log(url);
             this.getProjects(url)
+        },
+        truncateText(text) {
+            if (text.length > 100) {
+                return (text.substring(0, 100) + "...");
+            } else {
+                return text;
+            }
         }
     },
     mounted() {
@@ -43,25 +50,31 @@ export default {
 }
 </script>
 <template>
-    <div class=" container my-4">
-        <section class="card_project" v-if="projects && !loading">
-            <div class="row row-cols-1  row-cols-md-3 row-cols-xl-4 g-3">
-                <div class="col" v-for="project in    projects.data   ">
-                    <div class="card h-100  d-flex flex-column">
-                        <div class="image h-50">
-                            <img class="card-img-top object-fit-cover h-100" :src="getImagePath(project.image)"
-                                 alt="{{project.title}}">
+    <div class="container my-4">
+        <section class="cards_container" v-if="projects && !loading">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3   g-5  ">
+                <div class="col col_card" v-for="project in    projects.data   ">
+                    <div class="card h-100 border-0">
+                        <div class="card_image">
+                            <img :src="getImagePath(project.image)" alt="{{project.title}}">
                         </div>
                         <div class="card-body h-50">
-                            <h4 class="card-title">{{ project.title }}</h4>
-                            <a href="#" v-for="technology in project.technologies" v-if="project.technologies.length > 0">
-                                <span class="badge text-bg-info me-2">{{ technology.name }}</span>
-                            </a>
-                            <a href="#" v-else>
-                                <span class="badge rounded-pill bg-black  me-2">No technology</span>
-                            </a>
+                            <div class="card_technology">
+                                <span v-if="project.technologies.length > 0" v-for="technology in project.technologies"
+                                      class="pe-1">
+                                    {{ technology.name }} |
+                                </span>
+                                <span v-else class="  me-2">
+                                    No technology
+                                </span>
+                            </div>
+                            <div class="card_title">
+                                <h4>{{ project.title }}</h4>
+                            </div>
+                            <div class="card_description">
+                                <p>{{ truncateText(project.description) }}</p>
+                            </div>
 
-                            <p class="card-text">{{ project.description }}</p>
 
                             <router-link :to="{ name: 'single-post', params: { 'slug': project.slug } }">
                                 Read More
@@ -77,7 +90,7 @@ export default {
             <section class=" loading">
                 <div class="container">
                     <div class="row row-cols-1  row-cols-md-3 row-cols-xl-4 g-3">
-                        <div class="col" v-for="   n    in    8   ">
+                        <div class="col" v-for="n in 6">
                             <div class="card" aria-hidden="true">
                                 <img src="../assets/img/loading.gif" class="card-img-top" alt="...">
                                 <div class="card-body">
