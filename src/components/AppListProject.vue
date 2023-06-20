@@ -53,10 +53,10 @@ export default {
     <div class="container my-4">
         <section class="cards_container" v-if="projects && !loading">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3   g-5  ">
-                <div class="col col_card" v-for="project in    projects.data   ">
+                <div class="col col_card" v-for="project in    projects?.data   ">
                     <div class="card h-100 border-0">
                         <div class="card_image">
-                            <img :src="getImagePath(project.image)" alt="{{project.title}}">
+                            <img class="text-center text-uppercase" :src="getImagePath(project.image)" :alt="project.title">
                         </div>
                         <div class="card-body h-50">
                             <div class="card_technology">
