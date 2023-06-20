@@ -4,10 +4,23 @@
 
 
 body {
-    background-color: $bg_body;
-    background-image: linear-gradient(to top right, #FFFFFF 0%, $bg_body 50%, #AACFEF 60%);
+
+    // background-color: $bg_body;
+    background-image: linear-gradient(45deg, #6a98e38e, #8fd4ffdc, $bg_body, #9dffb734, #8ca8d5, #92bcff89, #b8ff8888);
+    background-size: 200% 200%;
+    animation: color 80s ease-in-out infinite;
 
     /* navbar */
+    .nav_header {
+        a {
+            margin-bottom: 1rem;
+            border-bottom: 0.5px solid #ffffff00;
+        }
+
+        a:hover {
+            border-bottom: 0.5px solid #22447b;
+        }
+    }
 
     /* endnavbar */
 
@@ -163,4 +176,39 @@ body {
         -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
         box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
     }
+
+
+
+    /* animation bg body */
+
+}
+
+@keyframes color {
+    0% {
+        background-position: 0 0%;
+    }
+
+    20% {
+        background-position: 40% 20%;
+    }
+
+    40% {
+        background-position: 0% 50%;
+
+    }
+
+    60% {
+        background-position: 100% 50%;
+    }
+
+    80% {
+        background-position: 40% 20%;
+
+    }
+
+    100% {
+        background-position: 0% 0%;
+
+    }
+
 }
