@@ -1,8 +1,6 @@
 <script>
 import AppBanner from '../components/AppBanner.vue';
 import AppListProject from '../components/AppListProject.vue';
-import Carousel3d from 'vue-carousel-3d';
-import Slide from 'vue-carousel-3d';
 import axios from 'axios';
 
 
@@ -11,8 +9,6 @@ export default {
     components: {
         AppBanner,
         AppListProject,
-        Carousel3d,
-        Slide
     },
     data() {
         return {
@@ -20,7 +16,7 @@ export default {
             projectsPath: 'api/projects',
             loading: true,
             projects: [],
-            error: null
+            error: null,
         }
     },
     methods: {
@@ -50,7 +46,20 @@ export default {
             } else {
                 return text;
             }
+        },
+
+
+        onAfterSlideChange(index) {
+            console.log('@onAfterSlideChange Callback Triggered', 'Slide Index ' + index)
+        },
+        onBeforeSlideChange(index) {
+            console.log('@onBeforeSlideChange Callback Triggered', 'Slide Index ' + index)
+        },
+        onLastSlide(index) {
+            console.log('@onLastSlide Callback Triggered', 'Slide Index ' + index)
         }
+
+
     },
     mounted() {
         const url = this.baseApi + this.projectsPath
@@ -70,38 +79,124 @@ export default {
         <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold"> My Blog</h1>
             <p class="col-md-8 fs-4">
-                Benvenuti nel mio Blog! Qui ci sono alcuni dei miei progetti creati durante il corso Boolean. Un
-                percorso che ha avuto inizio dalle basi di HTML e CSS all'utilizzo avanzato di javascript e php con
-                l'utilizzo di framework come Vue e Laravel, permettendomi di entrare nel mondo dello sviluppo web.
-                <br><br> Qui sotto
-                scoprirete le mie creazioni e le sfide affrontate lungo tutto il percorso.
-
-
-
+                Benvenuti nel mio Blog! Qui ci sono alcuni dei miei progetti creati durante tutto il corso Boolean. Un
+                percorso che ha avuto inizio con le basi di HTML e CSS per poi progredire con l'utilizzo avanzato di
+                javascript e php e l'implementazione di framework come Vue e Laravel, permettendomi di entrare nel mondo
+                dello sviluppo web.
             </p>
 
         </div>
     </div>
 
-
-    <!--     <carousel-3d v-if="projects">
-        <slide v-for="(project, i) in projects" :index="i" :key="i">
-            <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
-                <div class="card" style="width:18rem;">
-                    <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        b5
-                    </div>
-                </div>
-                <img class="text-center text-uppercase" :src="getImagePath(project.image)" :alt="project.title">
-            </template>
-        </slide>
-    </carousel-3d> -->
+    <!--- This may need to change --->
+    <div class="main-container">
+        <div class="coverflow-container">
+            <ol class="coverflow-list">
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-1">
+                <li class="coverflow-item">
+                    <label for="cover-1">
+                        <figure class="album-cover">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/51psxBugNkL.jpg">
+                            <figcaption class="album-name">Love Is Blind</figcaption>
+                        </figure>
+                    </label>
+                </li>
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-2">
+                <li class="coverflow-item">
+                    <label for="cover-2">
+                        <figure class="album-cover">
+                            <img
+                                 src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/9c0075e42d1e099c487488a168db0e41.1000x1000x1.jpg" />
+                            <figcaption class="album-name">Disintegration</figcaption>
+                        </figure>
+                    </label>
+                </li>
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-3">
+                <li class="coverflow-item">
+                    <label for="cover-3">
+                        <figure class="album-cover">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/3651470.jpg">
+                            <figcaption class="album-name">Dream Harder</figcaption>
+                        </figure>
+                    </label>
+                </li>
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-4">
+                <li class="coverflow-item">
+                    <label for="cover-4">
+                        <figure class="album-cover">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/MI0000681618.jpg">
+                            <figcaption class="album-name">Wish</figcaption>
+                        </figure>
+                    </label>
+                </li>
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-5">
+                <li class="coverflow-item">
+                    <label for="cover-5">
+                        <figure class="album-cover">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/homepage_large.63d675da.jpg">
+                            <figcaption class="album-name">2:54</figcaption>
+                        </figure>
+                    </label>
+                </li>
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-6">
+                <li class="coverflow-item">
+                    <label for="cover-6">
+                        <figure class="album-cover">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/garbagealbum1.jpg">
+                            <figcaption class="album-name">Garbage</figcaption>
+                        </figure>
+                    </label>
+                </li>
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-7">
+                <li class="coverflow-item">
+                    <label for="cover-7">
+                        <figure class="album-cover">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/long-way-round-2010.png">
+                            <figcaption class="album-name">Long Way Round</figcaption>
+                        </figure>
+                    </label>
+                </li>
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-8">
+                <li class="coverflow-item">
+                    <label for="cover-8">
+                        <figure class="album-cover">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/61b3DwIVKqL.jpg">
+                            <figcaption class="album-name">HomeGrown</figcaption>
+                        </figure>
+                    </label>
+                </li>
+                <!-- Cover item -->
+                <input type="radio" name="cover-item" id="cover-9">
+                <li class="coverflow-item">
+                    <label for="cover-9">
+                        <figure class="album-cover">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/0000037627_500.jpg">
+                            <figcaption class="album-name">Casanova</figcaption>
+                        </figure>
+                    </label>
+                </li>
+            </ol>
+        </div>
+        <div class="controls">
+            <label for="cover-1">1</label>
+            <label for="cover-2">2</label>
+            <label for="cover-3">3</label>
+            <label for="cover-4">4</label>
+            <label for="cover-5">5</label>
+            <label for="cover-6">6</label>
+            <label for="cover-7">7</label>
+            <label for="cover-8">8</label>
+            <label for="cover-9">9</label>
+        </div>
+    </div>
 
 
 
