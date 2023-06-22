@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AppHome from './view/AppHome.vue'
 import AppAbout from './view/AppAbout.vue'
 import AppContact from './view/AppContact.vue'
-import SinglePostView from './view/SinglePostView.vue'
+import SingleProjectView from './view/SingleProjectView.vue'
 import PageNotFound from './view/PageNotFound.vue'
 
 
@@ -17,7 +17,7 @@ const router = createRouter({
         {
             'path': '/blog/:slug',
             'name': 'single-post',
-            'component': SinglePostView
+            'component': SingleProjectView
         },
         {
             'path': '/About',

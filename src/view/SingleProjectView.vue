@@ -49,8 +49,11 @@ export default {
 
 <template>
     <AppBanner :title="project?.title"></AppBanner>
-
-
+    <div class="container-fluid">
+    </div>
+    <div class="card_image_fullscreen">
+        <img :src="getImagePath(project.image)" :alt="project.title">
+    </div>
     <div class="container single_cards_container my-4">
         <router-link class="btn btn-primary my-2" :to="{ name: 'home' }">
             Indietro
